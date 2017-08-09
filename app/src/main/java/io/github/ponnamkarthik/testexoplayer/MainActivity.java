@@ -21,6 +21,7 @@ import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 public class MainActivity extends AppCompatActivity {
 
     private RtmpDataSource.RtmpDataSourceFactory rtmpDataSourceFactory;
+    private SimpleExoPlayer player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 new AdaptiveTrackSelection.Factory(bandwidthMeter);
         TrackSelector trackSelector =
                 new DefaultTrackSelector(videoTrackSelectionFactory);
-        SimpleExoPlayer player =
+        player =
                 ExoPlayerFactory.newSimpleInstance(this, trackSelector);
 
         SimpleExoPlayerView simpleExoPlayerView = (SimpleExoPlayerView) findViewById(R.id.simple_player);
@@ -53,4 +54,5 @@ public class MainActivity extends AppCompatActivity {
         player.prepare(videoSource);
 
     }
+
 }
