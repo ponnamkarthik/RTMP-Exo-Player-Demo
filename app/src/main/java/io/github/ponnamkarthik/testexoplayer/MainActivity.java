@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.ext.rtmp.RtmpDataSource;
+import com.google.android.exoplayer2.ext.rtmp.RtmpDataSourceFactory;
 import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
 import com.google.android.exoplayer2.extractor.ExtractorsFactory;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
@@ -20,7 +22,7 @@ import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RtmpDataSource.RtmpDataSourceFactory rtmpDataSourceFactory;
+    private RtmpDataSourceFactory rtmpDataSourceFactory;
     private SimpleExoPlayer player;
 
     @Override
@@ -46,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
         /**
          * Create RTMP Data Source
          */
-        rtmpDataSourceFactory = new RtmpDataSource.RtmpDataSourceFactory();
+
+        rtmpDataSourceFactory = new RtmpDataSourceFactory();
         ExtractorsFactory extractorsFactory = new DefaultExtractorsFactory();
         MediaSource videoSource = new ExtractorMediaSource(Uri.parse("rtmp://184.72.239.149/vod/mp4:bigbuckbunny_750.mp4"),
                 rtmpDataSourceFactory, extractorsFactory, null, null);

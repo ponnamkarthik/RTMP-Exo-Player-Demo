@@ -29,4 +29,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.google.android.exoplayer:exoplayer:r2.5.1'
     compile 'net.butterflytv.utils:rtmp-client:0.2.8'
+    compile 'com.google.android.exoplayer:extension-rtmp:r2.5.1'
 }
