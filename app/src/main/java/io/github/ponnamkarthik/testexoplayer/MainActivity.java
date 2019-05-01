@@ -26,12 +26,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //RTMP Url
+        String url = "rtmp://184.72.239.149/vod/BigBuckBunny_115k.mov";
+//        String url = "rtmp://103.1.94.76:1935/live/timestv";
+
         /*
           Create Simple Exoplayer Player
          */
         BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
         TrackSelection.Factory videoTrackSelectionFactory =
-                new AdaptiveTrackSelection.Factory(bandwidthMeter);
+                new AdaptiveTrackSelection.Factory();
         TrackSelector trackSelector =
                 new DefaultTrackSelector(videoTrackSelectionFactory);
         SimpleExoPlayer player = ExoPlayerFactory.newSimpleInstance(this, trackSelector);
@@ -51,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 //                rtmpDataSourceFactory, extractorsFactory, null, null);
 
         MediaSource videoSource = new ExtractorMediaSource.Factory(rtmpDataSourceFactory)
-                .createMediaSource(Uri.parse("rtmp://stream1.livestreamingservices.com:1935/tvmlive/tvmlive"));
+                .createMediaSource(Uri.parse(url));
 
         player.prepare(videoSource);
 
