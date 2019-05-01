@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
         //RTMP Url
         String url = "rtmp://184.72.239.149/vod/BigBuckBunny_115k.mov";
-//        String url = "rtmp://103.1.94.76:1935/live/timestv";
 
         /*
           Create Simple Exoplayer Player
